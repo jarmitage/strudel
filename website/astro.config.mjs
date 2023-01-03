@@ -30,8 +30,8 @@ export default defineConfig({
     mdx(options),
     tailwind(),
   ],
-  site: `https://strudel.tidalcycles.org`,
-  base: '',
+  site: `jarmitage.github.io/strudel`,
+  base: '/strudel',
 });
 
 /*
