@@ -1,0 +1,14 @@
+// Beyond Slonimsky: Melodic Patterns for Guitar, Rich Cochrane, p.3
+// Slonimsky's first recipe works as follows. 
+// First take a certain number of octaves. 
+// Then divide them into equal parts: 
+// the first note of each part goes into the 'base'. 
+// That's all there is to it. 
+// Slonimsky is interested in all the possible ways to do this.
+
+let octaves = 3
+let start = 48
+
+saw.range(0,octaves*12).segment(octaves*12)
+  .add(start).struct("x*<2 3 4 6 12>")
+  .note().pianoroll({minMidi:start, maxMidi:start+octaves*12})
