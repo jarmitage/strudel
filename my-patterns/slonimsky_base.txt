@@ -9,6 +9,6 @@
 let octaves = 3
 let start = 48
 
-saw.range(0,octaves*12).segment(octaves*12)
+saw.range(0,octaves*12).floor().segment(octaves*12)
   .add(start).struct("x*<2 3 4 6 12>")
   .note().pianoroll({minMidi:start, maxMidi:start+octaves*12})
