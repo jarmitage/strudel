@@ -6,9 +6,9 @@
 // That's all there is to it. 
 // Slonimsky is interested in all the possible ways to do this.
 
-let octaves = 3
-let start = 48
+let octs = "[12 24 36 48 60]/20"
 
-saw.range(0,octaves*12).floor().segment(octaves*12)
-  .add(start).struct("x*<2 3 4 6 12>")
-  .note().pianoroll({minMidi:start, maxMidi:start+octaves*12})
+saw.range(0,octs).floor().segment(octs)
+  .add((octs).outside(20, rev))
+  .struct("x*<3 4 6 12>")
+  .note().pianoroll()

@@ -1,0 +1,13 @@
+// adding a base to an ornament
+saw
+  .range(0,12)
+  .floor()
+  // .segment(12)
+  .struct("x*<2 3 4 6 12>")
+  .add.squeeze("0 1 2 1")
+  .add(40)
+  // .slow("[2 3 4 6 12]/5")
+  .slow(4)
+  .note()
+  .pianoroll({cycles:16})
+
