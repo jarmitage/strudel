@@ -22,6 +22,16 @@ export async function initSwissGL() {
 }
 
 /**
+ * Template string literal tag for GLSL code, since Strudel transpiles regular strings into mini-notation.
+ *
+ * @function gl
+ * @param {Array} shader - The shader as a template string literal.
+ * @returns {*} The shader string as the first element of the template string literal array.
+ * @example FP:gl`sin(length(XY)*vec3(10,20,30)-time+atan(XY.x,XY.y)*10),1`
+ */
+export const gl = shader => shader[0]
+
+/**
  * Returns a function that queries a Pattern for a value at the current time.
  * The same as `hydra.mjs`'s `H` function but with a different name.
  *
@@ -31,16 +41,6 @@ export async function initSwissGL() {
  * @example GL("0 1 2")();
  */
 export const GL = (p) => () => p.queryArc(getTime(), getTime())[0].value;
-
-/**
- * Template string literal tag for GLSL code, since Strudel transpiles regular strings into mini-notation.
- *
- * @function gl
- * @param {Array} shader - The shader as a template string literal.
- * @returns {*} The shader string as the first element of the template string literal array.
- * @example FP:gl`sin(length(XY)*vec3(10,20,30)-time+atan(XY.x,XY.y)*10),1`
- */
-export const gl = shader => shader[0]
 
 /**
  * Turns a dictionary of Patterns into a dictionary of Pattern query functions via `GL()`.
@@ -62,11 +62,12 @@ export const gl = shader => shader[0]
  *     -time+atan(XY.x,XY.y)*10),1`});
  * });
  */
-const toGL = (pats, f=GL) => {
+export const toGL = (pats, f=GL) => {
   let glPats = {};
   for (let p in pats) {
     glPats[p] = f(pats[p]);
   }
+  console.log(pats, gPats)
   return glPats;
 }
 

@@ -45,6 +45,7 @@ let modules = [
   import('@strudel.cycles/serial'),
   import('@strudel.cycles/soundfonts'),
   import('@strudel.cycles/csound'),
+  import('swissgl'),
 ];
 if (isTauri()) {
   modules = modules.concat([

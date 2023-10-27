@@ -24,7 +24,7 @@ let b = "1 2 3 4".fast(4)
 let p2 = "10"
 glsl.loop(({time})=>{
     glsl.adjustCanvas(); 
-    glsl({time, r:P(r), g:P(g), b:P(b), p2:P(p2), Aspect:'cover',FP:gl`
+    glsl({time, ...toGL({r,g,b,p2}), Aspect:'cover',FP:gl`
     sin(length(XY)*vec3(r,g,b)
     -time+atan(XY.x,XY.y)*p2),1`});
 });
